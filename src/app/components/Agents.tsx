@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 // Realistic workflow examples (human-friendly)
 const workflows = [
   {
-    bubble: "Hey bot, when a new customer signs up, add them to Salesforce, create a contact in HubSpot, and notify my team via AWS SNS.",
+    bubble: "Hi, when a new customer signs up, add them to Salesforce, create a contact in HubSpot, and notify my team via AWS SNS.",
     steps: [
       "Bot receives new customer signup request",
       "Adds customer info to Salesforce",
