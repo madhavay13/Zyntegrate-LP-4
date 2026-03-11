@@ -1,11 +1,48 @@
 import { motion } from "motion/react";
 import { Button } from "./ui/button";
 import { Mail, Lock } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import logo from '../assets/logo4.jpg'
 
 export default function SignIn() {
+
+  const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  e.preventDefault();
+
+  const element = document.querySelector(href);
+
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  } else {
+    // navigate to homepage and scroll there
+    navigate("/" + href);
+  }
+
+  setMobileMenuOpen(false);
+};
   return (
     <div className="min-h-screen relative bg-gradient-to-b from-white via-blue-50 to-white px-6 flex items-center justify-center overflow-hidden">
-
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 z-20">
+  <a
+    href="#hero"
+    onClick={(e) => handleNavClick(e, "#hero")}
+    className="flex items-center gap-3 cursor-pointer"
+  >
+    <img
+      className="w-10 h-10 object-contain"
+      src={logo}
+      alt="Zyntegrate logo"
+    />
+    <span className="font-semibold text-xl text-gray-900">
+      Zyntegrate
+    </span>
+  </a>
+</div>
+      
       {/* Animated background blobs */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>

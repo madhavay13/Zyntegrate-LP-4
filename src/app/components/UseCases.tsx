@@ -2,7 +2,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
 import { WorkflowDiagram } from "./WorkFlow";
-import Nocode from "../assets/nocode.png";
+import Nocode from "../assets/no code.jpg";
 import Connectors from "../assets/connectors.png";
 
 const useCases = [

@@ -68,7 +68,7 @@ export function CTA() {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl text-gray-600 max-w-2xl mx-auto mb-12"
               >
-                Bring clarity to your infrastructure. Automate intelligently.
+                Bring clarity to your infrastructure. Integrate intelligently.
                 Move at the speed of business.
               </motion.p>
 

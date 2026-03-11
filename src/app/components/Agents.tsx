@@ -7,7 +7,7 @@ const workflows = [
   {
     bubble: "Hi, when a new customer signs up, add them to Salesforce, create a contact in HubSpot, and notify my team via AWS SNS.",
     steps: [
-      "Bot receives new customer signup request",
+      "Agent receives new customer signup request",
       "Adds customer info to Salesforce",
       "Creates contact in HubSpot",
       "Sends notification to team via AWS SNS",
@@ -17,7 +17,7 @@ const workflows = [
   {
     bubble: "Whenever someone places an order on my website, trigger the order processing queue and schedule follow-up tasks.",
     steps: [
-      "Bot detects new order via webhook",
+      "Agent detects new order via webhook",
       "Adds order to AWS SQS queue",
       "Triggers Azure Service Bus event for processing",
       "Starts a timer for follow-up tasks",
@@ -27,7 +27,7 @@ const workflows = [
   {
     bubble: "If a live chat message comes in through WebSocket, update HubSpot and Salesforce, and schedule a reminder to follow up later.",
     steps: [
-      "Bot receives WebSocket chat message",
+      "Agent receives WebSocket chat message",
       "Updates HubSpot with customer info",
       "Updates Salesforce with the same info",
       "Schedules follow-up using Timer",
@@ -183,13 +183,13 @@ function Agents() {
             </div>
 
             {/* Steps */}
-            <div className="flex flex-col items-center gap-2 mt-2">
+            <div className="flex flex-col items-center gap-2 mt-2 w-full">
               {Array.from({ length: 5 }).map((_, i) => (
                 <div
                   key={i}
                   id={`step-${i}`}
                   data-anim
-                  className="opacity-0 flex items-center gap-3 px-4 py-1 rounded-xl bg-blue-50/60 border border-blue-100 min-w-[220px] max-w-xs"
+                  className="opacity-0 flex items-center gap-3 px-4 py-2 rounded-xl bg-blue-50/60 border border-blue-100 w-full"
                 >
                   <div className="max-w-max flex-shrink-0 flex justify-center">
                     <Check className="text-green-500 w-4 h-4 opacity-0" data-tick />

@@ -10,6 +10,7 @@ import Why from "./components/WhyItMatters";
 import Agents from "./components/Agents"
 import SignIn from "./components/Signin"
 import Contact from "./components/ContactUs"
+import HowItWorks from "./components/HowItWorks"
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route , useLocation } from "react-router-dom";
 
@@ -28,6 +29,7 @@ export default function App() {
               <Why />
               <Features />
               <Agents />
+              <HowItWorks/>
               <UseCases />
               <CTA />
               <Footer />

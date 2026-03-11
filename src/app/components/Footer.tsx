@@ -42,15 +42,17 @@ export function Footer() {
           {/* Links */}
           <div className="flex flex-col gap-3 text-sm text-blue-800">
             <h4 className="font-semibold text-blue-900">Company</h4>
-            <a href="https://z-ninth.com/about" className="hover:text-blue-600 transition-colors">About Us</a>
-            <a href="https://z-ninth.com/services" className="hover:text-blue-600 transition-colors">Services</a>
+            <a target="_blank" href="https://z-ninth.com/about" className="hover:text-blue-600 transition-colors">About Us</a>
+            <a target="_blank" href="https://z-ninth.com/services" className="hover:text-blue-600 transition-colors">Services</a>
+            <a target="_blank" href="https://www.z-ninth.com/success-stories" className="hover:text-blue-600 transition-colors">Success Stories</a>
+            <a target="_blank" href="https://www.neuzenai.com/" className="hover:text-blue-600 transition-colors">AI Lab</a>
           </div>
 
-          <div className="flex flex-col gap-3 text-sm text-blue-800">
+          {/* <div className="flex flex-col gap-3 text-sm text-blue-800">
             <h4 className="font-semibold text-blue-900">Products</h4>
             <a href="/" className="hover:text-blue-600 transition-colors">Zyntegrate</a>
             <a href="https://finudge.com" className="hover:text-blue-600 transition-colors">Finudge</a>
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-3 text-sm text-blue-800">
             <h4 className="font-semibold text-blue-900">Contact</h4>

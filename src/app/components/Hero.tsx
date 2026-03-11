@@ -2,7 +2,7 @@ import { Button } from './ui/button';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
-import './Hero.css'
+import bg from '../assets/bg.jpg'
 
 export function Hero() {
   return (
@@ -112,11 +112,7 @@ Automate Anything.
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-blue-200/30 rounded-3xl blur-3xl"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/50 backdrop-blur-sm">
-              <ImageWithFallback
-                src="https://images.unsplash.com/photo-1644325349124-d1756b79dd42?q=80&w=1475&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Integration Dashboard"
-                className="w-full h-auto"
-              />
+              <img src={bg} alt="Hero Image" className="w-full h-auto object-cover" />
             </div>
           </motion.div>
         </div>
