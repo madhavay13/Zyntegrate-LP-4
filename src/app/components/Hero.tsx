@@ -3,15 +3,17 @@ import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { motion } from 'motion/react';
 import bg from '../assets/bg.jpg'
+import bg2 from '../assets/hero bg4.jpg'
+import bg3 from '../assets/hero bg5.jpg'
 
 export function Hero() {
   return (
     <section id='hero' className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-blue-50 to-white relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 size-72 bg-blue-200/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 size-96 bg-blue-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+      </div> */}
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -43,7 +45,7 @@ export function Hero() {
           Enterprise Integration Platform
         </motion.p> */}
             <motion.h1 
-              className="text-5xl lg:text-6xl font-bold text-blue-900 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-black leading-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
@@ -56,7 +58,7 @@ Automate Anything.
             </motion.h1>
             
             <motion.p 
-              className="text-l text-blue-800 leading-relaxed"
+              className="text-l text-slate-600 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -112,7 +114,7 @@ Automate Anything.
           >
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-blue-200/30 rounded-3xl blur-3xl"></div>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/50 backdrop-blur-sm">
-              <img src={bg} alt="Hero Image" className="w-full h-auto object-cover" />
+              <img src={bg2} alt="Hero Image" className="w-full h-auto object-cover" />
             </div>
           </motion.div>
         </div>

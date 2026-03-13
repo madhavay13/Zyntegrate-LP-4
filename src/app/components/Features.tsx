@@ -62,10 +62,10 @@ export function Features() {
       id="features"
       className="py-24 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden"
     >
-      {/* Subtle Blue Background Glow */}
+      {/* Subtle background glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -right-48 size-96 bg-blue-100/40 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -left-48 size-96 bg-blue-50/50 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -right-48 size-96 bg-slate-100/70 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -left-48 size-96 bg-slate-50/80 rounded-full blur-3xl" />
       </div>
 
       <div
@@ -79,11 +79,11 @@ export function Features() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] flex items-center justify-center"
         >
-          <div className="absolute inset-0 rounded-full border border-blue-100" />
-          <div className="absolute inset-6 rounded-full border border-blue-100" />
-          <div className="absolute inset-12 rounded-full border border-blue-100" />
+          <div className="absolute inset-0 rounded-full border border-slate-200" />
+          <div className="absolute inset-6 rounded-full border border-slate-200" />
+          <div className="absolute inset-12 rounded-full border border-slate-200" />
 
-          <div className="absolute inset-6 rounded-full bg-[conic-gradient(from_220deg_at_50%_50%,#2563EB,#3B82F6,#60A5FA,#2563EB)] opacity-90" />
+          <div className="absolute inset-6 rounded-full bg-[conic-gradient(from_220deg_at_50%_50%,#2563EB,#3B82F6,#60A5FA,#2563EB)] opacity-80" />
           <div className="absolute inset-14 rounded-full bg-white" />
 
           <motion.div
@@ -93,11 +93,11 @@ export function Features() {
             transition={{ type: 'spring', stiffness: 80, damping: 18 }}
           >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="size-9 sm:size-10 rounded-full bg-blue-600 shadow-[0_0_25px_rgba(37,99,235,0.4)]" />
+              <div className="size-9 sm:size-10 rounded-full bg-blue-600 shadow-[0_0_20px_rgba(37,99,235,0.35)]" />
             </div>
           </motion.div>
 
-          <div className="absolute inset-16 sm:inset-20 rounded-full bg-white flex items-center justify-center px-6 text-center shadow-lg border border-blue-100">
+          <div className="absolute inset-16 sm:inset-20 rounded-full bg-white flex items-center justify-center px-6 text-center shadow-md border border-slate-200">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeFeature.title}
@@ -113,17 +113,13 @@ export function Features() {
                   </div>
                 </div>
 
-                <p className="text-xs font-semibold tracking-[0.18em] text-blue-600 uppercase">
+                <p className="text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase">
                   Agent Driven Integrations
                 </p>
 
-                <h3 className="text-lg font-semibold text-blue-900">
+                <h3 className="text-lg font-semibold text-slate-900">
                   {activeFeature.title}
                 </h3>
-
-                {/* <p className="text-sm text-blue-900/60 leading-relaxed">
-                  {activeFeature.description}
-                </p> */}
               </motion.div>
             </AnimatePresence>
           </div>
@@ -136,16 +132,16 @@ export function Features() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-2xl"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-5">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-5">
             Powerful Integrations.{' '}
             <span className="text-blue-600">
               Simplified.
             </span>
           </h2>
 
-          <p className="text-lg text-blue-900/70 mb-8">
-            A modern integration layer built for enterprises bridging legacy systems, cloud apps,
-            APIs, and AI-driven workflows.
+          <p className="text-lg text-slate-600 mb-8">
+            A modern integration layer built for enterprises bridging legacy systems,
+            cloud apps, APIs, and AI-driven workflows.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -159,25 +155,25 @@ export function Features() {
                   onClick={() => setActiveIndex(index)}
                   className={`flex items-start gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
                     isActive
-                      ? 'border-blue-600 bg-blue-50'
-                      : 'border-blue-100 hover:border-blue-300 hover:bg-blue-50'
+                      ? 'border-blue-500 bg-blue-50'
+                      : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50'
                   }`}
                 >
                   <span
                     className={`mt-0.5 inline-flex size-14 items-center justify-center rounded-lg ${
                       isActive
                         ? 'bg-blue-600 text-white'
-                        : 'bg-blue-100 text-blue-700'
+                        : 'bg-slate-100 text-blue-600'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
                   </span>
 
                   <div>
-                    <p className="text-sm font-semibold text-blue-900">
+                    <p className="text-sm font-semibold text-slate-900">
                       {feature.title}
                     </p>
-                    <p className="text-xs text-blue-900/60 line-clamp-2">
+                    <p className="text-xs text-slate-500 line-clamp-2">
                       {feature.description}
                     </p>
                   </div>

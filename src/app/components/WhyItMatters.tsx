@@ -40,33 +40,37 @@ const WhyItMatters = () => {
   return (
     <section
       id="why-it-matters"
-      className="relative bg-gradient-to-b from-white via-blue-50 to-white py-20 overflow-hidden"
+      className="relative bg-gradient-to-b from-white via-slate-50 to-white py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
+
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-1xl mx-auto mb-4"
+          className="text-center max-w-7xl mx-auto mb-6"
         >
-          <span className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-4 block">
+          <span className="text-slate-500 font-semibold text-sm tracking-widest uppercase mb-2 block">
             Why It Matters
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-blue-900">
+
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-slate-900">
             Built for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">
               today's reality
             </span>
           </h2>
-          <p className="text-blue-800 text-lg leading-relaxed">
-            The world runs on data. Here's why seamless integration is no longer optional it's the foundation of every modern enterprise.
+
+          <p className="text-slate-600 text-lg leading-relaxed">
+            The world runs on data. Here's why seamless integration is no longer optional
+            it's the foundation of every modern enterprise.
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
@@ -74,30 +78,39 @@ const WhyItMatters = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative group bg-white rounded-3xl shadow-xl border border-blue-100/60 p-4 lg:p-4 overflow-hidden"
+              className="relative group bg-white rounded-3xl shadow-md border border-slate-200 p-6 overflow-hidden"
             >
-              {/* Animated border */}
-              <span className="absolute inset-0 border-2 border-transparent rounded-3xl pointer-events-none group-hover:border-blue-500 transition-all duration-500"></span>
+              {/* Hover border */}
+              <span className="absolute inset-0 border-2 border-transparent rounded-3xl pointer-events-none group-hover:border-blue-400 transition-all duration-500"></span>
 
-              {/* Top right stat */}
+              {/* Stat */}
               <div className="absolute top-6 right-6 text-right z-10">
                 <span className="block text-3xl font-bold text-blue-600">
                   {reason.stat}
                 </span>
-                <span className="text-blue-800 text-xs">{reason.statLabel}</span>
+                <span className="text-slate-500 text-xs">
+                  {reason.statLabel}
+                </span>
               </div>
 
               {/* Icon */}
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-6 relative z-10">
+              <div className="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center mb-6 relative z-10">
                 <reason.icon className="w-6 h-6 text-blue-600" />
               </div>
 
-              {/* Title & description */}
-              <h3 className="text-2xl font-bold mb-3 text-blue-900 relative z-10">{reason.title}</h3>
-              <p className="text-blue-800 leading-relaxed relative z-10">{reason.description}</p>
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-3 text-slate-900 relative z-10">
+                {reason.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-slate-600 leading-relaxed relative z-10">
+                {reason.description}
+              </p>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

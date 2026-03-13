@@ -29,7 +29,7 @@ export default function App() {
               <Why />
               <Features />
               <Agents />
-              <HowItWorks/>
+              {/* <HowItWorks/> */}
               <UseCases />
               <CTA />
               <Footer />

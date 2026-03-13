@@ -81,13 +81,13 @@ export function Header() {
             >
               Agent
             </a>
-             <a
+             {/* <a
               href="#how-it-works"
               onClick={(e) => handleNavClick(e, '#how-it-works')}
               className="px-3 py-1.5 text-gray-600 hover:text-blue-700 font-medium rounded-full bg-transparent hover:bg-blue-100 transition-all duration-200"
             >
               How It Works
-            </a>
+            </a> */}
             <a
               href="#use-cases"
               onClick={(e) => handleNavClick(e, '#use-cases')}
