@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, useAnimate, AnimatePresence } from "motion/react";
+import { useEffect, useState, useRef } from "react";
+import { motion, useAnimate } from "motion/react";
 import { Check } from "lucide-react";
 
 const workflows = [
@@ -44,9 +44,28 @@ const workflows = [
   },
 ];
 
+function pausableDelay(ms, isPaused) {
+  return new Promise((resolve) => {
+    const interval = 50;
+    let elapsed = 0;
+    const tick = () => {
+      if (!isPaused.current) {
+        elapsed += interval;
+      }
+      if (elapsed >= ms) {
+        resolve();
+      } else {
+        setTimeout(tick, interval);
+      }
+    };
+    setTimeout(tick, interval);
+  });
+}
+
 function Agents() {
   const [scope, animate] = useAnimate();
   const [currentWorkflow, setCurrentWorkflow] = useState(0);
+  const isPaused = useRef(false);
 
   useEffect(() => {
     const runSequence = async () => {
@@ -65,6 +84,11 @@ function Agents() {
         await animate("#arrow2", { opacity: 1 }, { duration: 0.4 });
 
         for (let i = 0; i < steps.length; i++) {
+          // Wait while paused before each step
+          while (isPaused.current) {
+            await new Promise((r) => setTimeout(r, 50));
+          }
+
           const phaseEl = document.getElementById(`step-phase-${i}`);
           const textEl = document.getElementById(`step-text-${i}`);
 
@@ -78,13 +102,13 @@ function Agents() {
             await animate(tickEl, { opacity: 1, scale: [0, 1.2, 1] }, { duration: 0.3 });
           }
 
-          await new Promise((r) => setTimeout(r, 200));
+          await pausableDelay(200, isPaused);
         }
 
-        await new Promise((r) => setTimeout(r, 4000));
+        await pausableDelay(4000, isPaused);
         await animate("[data-anim]", { opacity: 0, y: -10 }, { duration: 0.6 });
         await animate("[data-tick]", { opacity: 0, scale: 0 }, { duration: 0.3 });
-        await new Promise((r) => setTimeout(r, 600));
+        await pausableDelay(600, isPaused);
 
         setCurrentWorkflow((prev) => (prev + 1) % workflows.length);
       }
@@ -93,31 +117,32 @@ function Agents() {
     runSequence();
   }, [animate, currentWorkflow]);
 
- const rightSideCards = [
-  {
-    label: "Receive & Understand",
-    title: "Input",
-    description:
-      "The agent receives requests or events and interprets the intent quickly.",
-  },
-  {
-    label: "Process & Connect",
-    title: "Execution",
-    description:
-      "Automatically connects to necessary systems and executes actions.",
-  },
-  {
-    label: "Monitor & Complete",
-    title: "Result",
-    description:
-      "Tracks progress, ensures success, and delivers the final outcome.",
-  },
-];
+  const rightSideCards = [
+    {
+      label: "Receive & Understand",
+      title: "Input",
+      description:
+        "The agent receives requests or events and interprets the intent quickly.",
+    },
+    {
+      label: "Process & Connect",
+      title: "Execution",
+      description:
+        "Automatically connects to necessary systems and executes actions.",
+    },
+    {
+      label: "Monitor & Complete",
+      title: "Result",
+      description:
+        "Tracks progress, ensures success, and delivers the final outcome.",
+    },
+  ];
 
   return (
     <section
       id="agents"
       className="py-14 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden"
+      
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-10 right-10 w-96 h-96 bg-blue-100/20 blur-3xl rounded-full" />
@@ -126,7 +151,10 @@ function Agents() {
 
       <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-10 items-stretch">
 
-        <div ref={scope} className="relative h-full flex items-center justify-center">
+        <div ref={scope} className="relative h-full flex items-center justify-center"
+        onMouseEnter={() => { isPaused.current = true; }}
+      onMouseLeave={() => { isPaused.current = false; }}
+      >
           <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl p-6 flex flex-col items-center justify-center h-full">
 
             <div
